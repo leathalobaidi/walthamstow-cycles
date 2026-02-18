@@ -104,6 +104,12 @@ p { margin-bottom: 1rem; }
 .price { display: block; font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
 .price-desc { font-size: 0.95rem; opacity: 0.85; }
 .small-note { font-size: 0.85rem; color: #888; font-style: italic; margin-top: 1.5rem; }
+.services-pricing, .services-how { margin-top: 3rem; }
+.services-pricing h3, .services-how h3 { color: #2c3e6b; font-size: 1.3rem; margin-bottom: 1rem; }
+.pricing-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+.pricing-table td { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.08); color: #555; }
+.pricing-table td:last-child { text-align: right; font-weight: 500; color: #1a1a2e; }
+.pricing-note { font-size: 0.9rem; color: #888; font-style: italic; }
 
 /* === CONTACT === */
 .contact { padding: 100px 0; background: #1a1a2e; color: #fff; }
