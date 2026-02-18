@@ -35,7 +35,7 @@ p { margin-bottom: 1rem; }
 .nav-links a { font-weight: 500; font-size: 0.95rem; position: relative; color: #555; }
 .nav-links a:hover, .nav-links a.active { color: #1a1a2e; }
 .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #2c3e6b; transition: width 0.3s; }
-.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 .nav-actions { display: flex; align-items: center; gap: 16px; }
 .social-icon { color: #555; transition: color 0.3s; }
 .social-icon:hover { color: #2c3e6b; }
@@ -138,6 +138,11 @@ p { margin-bottom: 1rem; }
 .form-group input, .form-group textarea { width: 100%; padding: 14px 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; color: #fff; font-family: inherit; font-size: 1rem; transition: border-color 0.3s; }
 .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #2c3e6b; background: rgba(255,255,255,0.12); }
 .form-group textarea { resize: vertical; }
+.form-group input:invalid:not(:placeholder-shown):not(:focus), .form-group textarea:invalid:not(:placeholder-shown):not(:focus) { border-color: #ff6b6b; }
+.form-group input:valid:not(:placeholder-shown), .form-group textarea:valid:not(:placeholder-shown) { border-color: rgba(37,211,102,0.4); }
+.form-status { text-align: center; font-size: 0.9rem; margin-top: 1rem; min-height: 1.5em; }
+.form-status.success { color: #25d366; }
+.form-status.error { color: #ff6b6b; }
 
 /* === OPENING HOURS === */
 .opening-hours { margin-top: 2rem; }
@@ -148,6 +153,7 @@ p { margin-bottom: 1rem; }
 .hours-table tr:last-child td { border-bottom: none; }
 .hours-note { font-size: 0.8rem; color: rgba(255,255,255,0.45); font-style: italic; margin-top: 0.5rem; }
 .service-area-note { margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.6); }
+.map-embed { width: 100%; height: 300px; border: 0; border-radius: 16px; margin-top: 48px; opacity: 0.85; }
 
 /* === FLOATING BUTTONS === */
 .whatsapp-fab { position: fixed; bottom: 24px; right: 24px; z-index: 900; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s; }

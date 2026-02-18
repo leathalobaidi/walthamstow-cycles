@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section[id]');
   const backToTop = document.getElementById('backToTop');
 
+  // Dynamic copyright year
+  const yearEl = document.getElementById('copyrightYear');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   // Combined scroll handler
   let ticking = false;
   window.addEventListener('scroll', () => {
@@ -36,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 
   // Mobile nav toggle
-  navToggle.addEventListener('click', () => {
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     navLinks.classList.toggle('active');
     navToggle.classList.toggle('active');
   });
@@ -49,6 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Close mobile nav on outside click
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+      navLinks.classList.remove('active');
+      navToggle.classList.remove('active');
+    }
+  });
+
   // Back to top click
   if (backToTop) {
     backToTop.addEventListener('click', () => {
@@ -56,10 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // FAQ toggle (replaces inline onclick)
+  // FAQ single-open accordion
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
-      btn.parentElement.classList.toggle('open');
+      const parent = btn.parentElement;
+      const wasOpen = parent.classList.contains('open');
+      // Close all others
+      document.querySelectorAll('.faq-item.open').forEach(item => {
+        item.classList.remove('open');
+      });
+      // Toggle clicked (reopen if it was closed)
+      if (!wasOpen) parent.classList.add('open');
     });
   });
 
@@ -86,18 +106,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Form handling
+  // Form handling via fetch (FormSubmit.co)
   const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const data = Object.fromEntries(new FormData(contactForm));
-      const subject = 'Website Enquiry from ' + data.firstName + ' ' + data.lastName;
-      const body = 'Name: ' + data.firstName + ' ' + data.lastName + '\nEmail: ' + data.email + '\nPhone: ' + (data.phone || 'N/A') + '\nMessage: ' + (data.message || 'N/A');
-      window.location.href = 'mailto:WalthamstowCycles@live.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       const btn = contactForm.querySelector('button[type="submit"]');
-      btn.textContent = 'Opening email client...';
-      setTimeout(() => { btn.textContent = 'Send Message'; }, 3000);
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          contactForm.reset();
+          if (formStatus) {
+            formStatus.textContent = 'Message sent! We will be in touch shortly.';
+            formStatus.className = 'form-status success';
+          }
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(() => {
+        if (formStatus) {
+          formStatus.textContent = 'Something went wrong. Please call or WhatsApp us instead.';
+          formStatus.className = 'form-status error';
+        }
+      })
+      .finally(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        setTimeout(() => { if (formStatus) formStatus.textContent = ''; }, 6000);
+      });
     });
   }
 });
