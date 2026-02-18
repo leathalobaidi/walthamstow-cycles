@@ -75,5 +75,5 @@
   <line x1="160" y1="236" x2="640" y2="236" stroke="#1a1a1a" stroke-width="1" opacity="0.12" />
 
   <!-- Est -->
-  <text x="400" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1a1a1a" opacity="0.28" letter-spacing="3.5">EST. 2013  Â·  WALTHAMSTOW  -Â·  E17</text>
+  <text x="400" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1a1a1a" opacity="0.28" letter-spacing="3.5">EST. 2013  ·  WALTHAMSTOW  ·  E17</text>
 </svg>
