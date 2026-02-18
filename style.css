@@ -112,10 +112,11 @@ p { margin-bottom: 1rem; }
 .services-block-col:first-child { border-right: 1px solid rgba(255,255,255,0.1); }
 .services-block h3 { font-size: 1.3rem; color: #fff; margin-bottom: 1.5rem; }
 .services-block p { color: rgba(255,255,255,0.75); }
-.services-pricing-list { list-style: none; padding: 0; }
-.services-pricing-list li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); font-size: 0.95rem; }
-.services-pricing-list li:last-child { border-bottom: none; }
-.services-pricing-list strong { color: #fff; }
+.services-pricing-table { width: 100%; border-collapse: collapse; }
+.services-pricing-table td { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.75); font-size: 0.95rem; }
+.services-pricing-table td:last-child { text-align: right; font-weight: 700; color: #fff; }
+.services-pricing-table tr:last-child td { border-bottom: none; }
+.services-pricing-note { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-style: italic; margin-top: 1.5rem; }
 
 /* === CONTACT === */
 .contact { padding: 100px 0; background: #1a1a2e; color: #fff; }
