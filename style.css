@@ -104,12 +104,16 @@ p { margin-bottom: 1rem; }
 .price { display: block; font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
 .price-desc { font-size: 0.95rem; opacity: 0.85; }
 .small-note { font-size: 0.85rem; color: #888; font-style: italic; margin-top: 1.5rem; }
-.services-pricing, .services-how { margin-top: 3rem; }
-.services-pricing h3, .services-how h3 { color: #2c3e6b; font-size: 1.3rem; margin-bottom: 1rem; }
-.pricing-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
-.pricing-table td { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.08); color: #555; }
-.pricing-table td:last-child { text-align: right; font-weight: 500; color: #1a1a2e; }
-.pricing-note { font-size: 0.9rem; color: #888; font-style: italic; }
+.services-block { display: grid; grid-template-columns: 1fr 1fr; background: #2c3e6b; border-radius: 16px; overflow: hidden; margin-top: 3rem; }
+.services-block-col { padding: 40px; }
+.services-block-col:first-child { border-right: 1px solid rgba(255,255,255,0.1); }
+.services-block h3 { font-size: 1.3rem; color: #fff; margin-bottom: 1.5rem; }
+.services-block p { color: rgba(255,255,255,0.75); }
+.pricing-table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+.pricing-table td { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+.pricing-table td:last-child { text-align: right; font-weight: 600; color: #fff; }
+.pricing-table tr:last-child td { border-bottom: none; }
+.pricing-note { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-style: italic; }
 
 /* === CONTACT === */
 .contact { padding: 100px 0; background: #1a1a2e; color: #fff; }
@@ -148,7 +152,8 @@ p { margin-bottom: 1rem; }
   .nav-links.active { display: flex; }
   .nav-toggle { display: block; }
   .nav-actions .social-icon { display: none; }
-  .about-grid, .contact-grid, .advisory-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-grid, .contact-grid, .advisory-grid, .services-block { grid-template-columns: 1fr; gap: 0; }
+  .services-block-col:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
   .commitment-grid { grid-template-columns: 1fr; gap: 32px; }
   .form-row { grid-template-columns: 1fr; }
   .footer-content { flex-direction: column; gap: 20px; text-align: center; }
