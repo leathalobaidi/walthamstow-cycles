@@ -134,6 +134,22 @@ p { margin-bottom: 1rem; }
 .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #2c3e6b; background: rgba(255,255,255,0.12); }
 .form-group textarea { resize: vertical; }
 
+/* === OPENING HOURS === */
+.opening-hours { margin-top: 2rem; }
+.opening-hours h3 { color: #fff; font-size: 1.1rem; margin-bottom: 0.75rem; }
+.hours-table { width: 100%; border-collapse: collapse; }
+.hours-table td { padding: 6px 0; color: rgba(255,255,255,0.7); font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.hours-table td:last-child { text-align: right; }
+.hours-table tr:last-child td { border-bottom: none; }
+.hours-note { font-size: 0.8rem; color: rgba(255,255,255,0.45); font-style: italic; margin-top: 0.5rem; }
+
+/* === FLOATING BUTTONS === */
+.whatsapp-fab { position: fixed; bottom: 24px; right: 24px; z-index: 900; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s; }
+.whatsapp-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+.back-to-top { position: fixed; bottom: 24px; right: 92px; z-index: 900; width: 44px; height: 44px; background: #2c3e6b; border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 16px rgba(44,62,107,0.3); transition: opacity 0.3s, transform 0.3s; opacity: 0; pointer-events: none; color: #fff; }
+.back-to-top.visible { opacity: 1; pointer-events: auto; }
+.back-to-top:hover { transform: translateY(-3px); background: #1a2a4a; }
+
 /* === FOOTER === */
 .footer { padding: 40px 0; background: #111; color: rgba(255,255,255,0.6); }
 .footer-content { display: flex; justify-content: space-between; align-items: center; }
@@ -158,6 +174,9 @@ p { margin-bottom: 1rem; }
 @media (max-width: 480px) {
   .hero { min-height: 80vh; }
   .commitment, .story, .about, .advisory, .services, .contact { padding: 60px 0; }
+  .whatsapp-fab { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+  .whatsapp-fab svg { width: 24px; height: 24px; }
+  .back-to-top { bottom: 16px; right: 76px; width: 40px; height: 40px; }
 }
 /* === SCROLL ANIMATIONS === */
 .animate-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }

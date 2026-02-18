@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   const sections = document.querySelectorAll('section[id]');
+  const backToTop = document.getElementById('backToTop');
 
   // Combined scroll handler
   let ticking = false;
@@ -13,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Navbar scroll effect
         navbar.classList.toggle('scrolled', scrollY > 50);
+
+        // Back to top visibility
+        if (backToTop) backToTop.classList.toggle('visible', scrollY > 600);
 
         // Active nav link on scroll
         let current = '';
@@ -44,6 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.classList.remove('active');
     }
   });
+
+  // Back to top click
+  if (backToTop) {
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // FAQ toggle (replaces inline onclick)
   document.querySelectorAll('.faq-question').forEach(btn => {
