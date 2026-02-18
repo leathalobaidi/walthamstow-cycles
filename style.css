@@ -107,10 +107,15 @@ p { margin-bottom: 1rem; }
 .price { display: block; font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
 .price-desc { font-size: 0.95rem; opacity: 0.85; }
 .small-note { font-size: 0.85rem; color: #888; font-style: italic; margin-top: 1.5rem; }
-.services-block { background: #2c3e6b; border-radius: 16px; overflow: hidden; margin-top: 3rem; }
+.services-block { display: grid; grid-template-columns: 1fr 1fr; background: #2c3e6b; border-radius: 16px; overflow: hidden; margin-top: 3rem; }
 .services-block-col { padding: 40px; }
+.services-block-col:first-child { border-right: 1px solid rgba(255,255,255,0.1); }
 .services-block h3 { font-size: 1.3rem; color: #fff; margin-bottom: 1.5rem; }
 .services-block p { color: rgba(255,255,255,0.75); }
+.services-pricing-list { list-style: none; padding: 0; }
+.services-pricing-list li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+.services-pricing-list li:last-child { border-bottom: none; }
+.services-pricing-list strong { color: #fff; }
 
 /* === CONTACT === */
 .contact { padding: 100px 0; background: #1a1a2e; color: #fff; }
@@ -166,7 +171,8 @@ p { margin-bottom: 1rem; }
   .nav-links.active { display: flex; }
   .nav-toggle { display: block; }
   .nav-actions .social-icon { display: none; }
-  .about-grid, .contact-grid, .advisory-grid { grid-template-columns: 1fr; gap: 0; }
+  .about-grid, .contact-grid, .advisory-grid, .services-block { grid-template-columns: 1fr; }
+  .services-block-col:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
   .commitment-grid { grid-template-columns: 1fr; gap: 32px; }
   .form-row { grid-template-columns: 1fr; }
   .footer-content { flex-direction: column; gap: 20px; text-align: center; }
