@@ -85,8 +85,7 @@ p { margin-bottom: 1rem; }
 .advisory-card h3 { color: #2c3e6b; font-size: 1.3rem; margin-bottom: 1rem; }
 .advisory-card ol, .advisory-card ul { padding-left: 20px; }
 .advisory-card li { margin-bottom: 0.5rem; color: #555; }
-.advisory-card .pricing-list { list-style: none; padding-left: 0; }
-.advisory-card .pricing-list li { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.advisory-card:last-child { grid-column: 1 / -1; }
 
 /* === FAQs === */
 .faqs { max-width: 700px; margin: 0 auto; }
@@ -148,6 +147,7 @@ p { margin-bottom: 1rem; }
 .hours-table td:last-child { text-align: right; }
 .hours-table tr:last-child td { border-bottom: none; }
 .hours-note { font-size: 0.8rem; color: rgba(255,255,255,0.45); font-style: italic; margin-top: 0.5rem; }
+.service-area-note { margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.6); }
 
 /* === FLOATING BUTTONS === */
 .whatsapp-fab { position: fixed; bottom: 24px; right: 24px; z-index: 900; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s; }
