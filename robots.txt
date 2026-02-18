@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://leathalobaidi.github.io/walthamstow-cycles/sitemap.xml

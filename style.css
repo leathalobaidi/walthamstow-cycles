@@ -3,8 +3,11 @@
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1a1a2e; background: #f5f0eb; line-height: 1.7; }
 a { text-decoration: none; color: inherit; transition: color 0.3s; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.skip-link { position: absolute; top: -100%; left: 16px; background: #2c3e6b; color: #fff; padding: 8px 16px; border-radius: 0 0 8px 8px; z-index: 9999; font-size: 0.9rem; }
+.skip-link:focus { top: 0; }
+:focus-visible { outline: 2px solid #2c3e6b; outline-offset: 2px; }
 
 /* === TYPOGRAPHY === */
 h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.2; }
@@ -113,7 +116,7 @@ p { margin-bottom: 1rem; }
 .pricing-table td { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
 .pricing-table td:last-child { text-align: right; font-weight: 600; color: #fff; }
 .pricing-table tr:last-child td { border-bottom: none; }
-.pricing-note { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-style: italic; }
+.pricing-note { font-size: 0.85rem; color: rgba(255,255,255,0.7); font-style: italic; }
 
 /* === CONTACT === */
 .contact { padding: 100px 0; background: #1a1a2e; color: #fff; }
@@ -142,6 +145,7 @@ p { margin-bottom: 1rem; }
 .footer-content { display: flex; justify-content: space-between; align-items: center; }
 .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; }
 .footer-brand p { margin-top: 4px; font-size: 0.85rem; }
+.footer-copy { font-size: 0.75rem; opacity: 0.5; }
 .footer-social { display: flex; gap: 16px; }
 .footer-social a { color: rgba(255,255,255,0.4); transition: color 0.3s; }
 .footer-social a:hover { color: #fff; }
@@ -161,4 +165,11 @@ p { margin-bottom: 1rem; }
 @media (max-width: 480px) {
   .hero { min-height: 80vh; }
   .commitment, .story, .about, .advisory, .services, .contact { padding: 60px 0; }
+}
+/* === SCROLL ANIMATIONS === */
+.animate-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.animate-in.is-visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
